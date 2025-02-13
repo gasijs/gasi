@@ -21,11 +21,12 @@
   ],
   "scripts": {
     "build": "unbuild",
+    "compile:watch": "pnpx nodemon --exec pnpm jiti src/test.ts",
     "dev": "vitest dev",
     "lint": "eslint . && prettier -c .",
     "lint:fix": "automd && eslint . --fix && prettier -w .",
     "prepack": "pnpm build",
-    "play": "jiti playground",
+    "play": "pnpm build && vite playground",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
     "test": "pnpm lint && pnpm test:types && vitest run --coverage",
     "test:types": "tsc --noEmit --skipLibCheck"
@@ -37,11 +38,17 @@
     "changelogen": "^0.5.7",
     "eslint": "^9.17.0",
     "eslint-config-unjs": "^0.4.2",
+    "htmlparser2": "^10.0.0",
     "jiti": "^2.4.2",
     "prettier": "^3.4.2",
+    "solid-js": "^1.9.3",
     "typescript": "^5.7.2",
     "unbuild": "^3.0.1",
+    "vite-plugin-solid": "^2.11.0",
     "vitest": "^2.1.8"
   },
-  "packageManager": "pnpm@9.15.1"
+  "packageManager": "pnpm@9.15.1",
+  "dependencies": {
+    "vite": "^6.0.11"
+  }
 }

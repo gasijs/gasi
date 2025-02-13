@@ -1,0 +1,29 @@
+<script lang="ts">
+  import { createSignal as singal, create } from "solid-js";
+
+  const [count, setCount] = $singal(0);
+
+  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+</script>
+
+<button on:click={() => setCount((c) => c + 0.5)}>
+  The counter is {count()}
+</button>
+
+<!-- for -->
+<div $for={(letter, index in alphabet)}>
+  $for in alphabet: {letter}
+</div>
+
+<!-- if -->
+<div $if={count() < 5.5}>
+  {count()} is shorter than me
+</div>
+
+<div $elseif={count() === 5.5}>
+  {count()} is me
+</div>
+
+<div $else>
+  {count()} is too tall
+</div>
